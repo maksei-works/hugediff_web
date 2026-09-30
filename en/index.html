@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-SH7YP9G9S1"></script>
@@ -13,21 +13,21 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="HugeDiffは、巨大ファイルやフォルダの比較をローカル環境で処理するWindows用フリーソフトです。UI仮想化技術により100万行のログもフリーズせずに高速描画します。">
-    <link rel="alternate" hreflang="ja" href="./" />
-    <link rel="alternate" hreflang="en" href="en/" />
-    <link rel="alternate" hreflang="x-default" href="./" />
-    <link rel="canonical" href="https://maksei-works.github.io/hugediff_web/" />
-    <link rel="icon" href="favicon.ico" />
-    <title>HugeDiff - 大容量テキスト・フォルダ対応の差分比較ツール</title>
+    <meta name="description" content="HugeDiff is a freeware Windows diff tool optimized for massive files and folders. Experience zero freezes even with 1M+ line logs thanks to UI virtualization.">
+    <link rel="alternate" hreflang="ja" href="../" />
+    <link rel="alternate" hreflang="en" href="./" />
+    <link rel="alternate" hreflang="x-default" href="../" />
+    <link rel="canonical" href="https://maksei-works.github.io/hugediff_web/en/" />
+    <link rel="icon" href="../favicon.ico" />
+    <title>HugeDiff - The Diff Tool for Massive Text Files and Folders</title>
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://maksei-works.github.io/hugediff_web/" />
-    <meta property="og:title" content="HugeDiff - 大容量テキスト・フォルダ対応の差分比較ツール" />
-    <meta property="og:description" content="HugeDiffは、巨大ファイルやフォルダの比較をローカル環境で処理するWindows用フリーソフトです。UI仮想化技術により100万行のログもフリーズせずに高速描画します。" />
+    <meta property="og:url" content="https://maksei-works.github.io/hugediff_web/en/" />
+    <meta property="og:title" content="HugeDiff - The Diff Tool for Massive Text Files and Folders" />
+    <meta property="og:description" content="HugeDiff is a freeware Windows diff tool optimized for massive files and folders. Experience zero freezes even with 1M+ line logs thanks to UI virtualization." />
     <meta property="og:image" content="https://maksei-works.github.io/hugediff_web/ja/img/text-diff.png" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="HugeDiff - 大容量テキスト・フォルダ対応の差分比較ツール" />
-    <meta name="twitter:description" content="HugeDiffは、巨大ファイルやフォルダの比較をローカル環境で処理するWindows用フリーソフトです。UI仮想化技術により100万行のログもフリーズせずに高速描画します。" />
+    <meta name="twitter:title" content="HugeDiff - The Diff Tool for Massive Text Files and Folders" />
+    <meta name="twitter:description" content="HugeDiff is a freeware Windows diff tool optimized for massive files and folders. Experience zero freezes even with 1M+ line logs thanks to UI virtualization." />
     <meta name="twitter:image" content="https://maksei-works.github.io/hugediff_web/ja/img/text-diff.png" />
     <style>
         :root {
@@ -40,7 +40,7 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "メイリオ", Meiryo, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: #f8fafc;
             color: var(--text);
             margin: 0;
@@ -58,7 +58,7 @@
             box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.05);
         }
 
-        /* トップナビ */
+        /* Top Nav */
         .top-nav {
             display: flex;
             justify-content: flex-end;
@@ -76,7 +76,7 @@
             text-decoration: underline;
         }
 
-        /* ヒーローセクション */
+        /* Hero Section */
         .hero {
             text-align: center;
             padding-bottom: 24px;
@@ -145,7 +145,7 @@
             margin-top: 8px;
         }
 
-        /* スクリーンショット ギャラリー */
+        /* Screenshot Gallery */
         .screenshot-gallery {
             margin-bottom: 40px;
         }
@@ -179,20 +179,18 @@
             color: #475569;
         }
 
-        /* 1枚目（メイン）と 2・3枚目（サブ）のレイアウト用 */
+        /* Layout for Main and Sub Screenshots */
         .screenshot-main {
             margin-bottom: 24px;
         }
-        /* 強制的に横並び（1:1）にするFlexbox */
         .screenshot-sub-flex {
             display: flex;
-            gap: 16px; /* 隙間 */
+            gap: 16px;
         }
         .screenshot-sub-flex > div {
-            flex: 1;      /* 領域を均等に半分ずつ割り当て */
-            min-width: 0; /* ※画像が枠を突き破るのを防ぐ必須のおまじない */
+            flex: 1;
+            min-width: 0;
         }
-        /* 画像が小さくなるため、キャプションの文字サイズも微調整 */
         .screenshot-sub-flex .caption {
             font-size: 11.5px;
             margin-top: 8px;
@@ -255,7 +253,7 @@
             margin-top: 12px;
         }
 
-        /* テーブル */
+        /* Table */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -303,124 +301,123 @@
 <body>
 
 <div class="container">
-    <!-- トップナビ -->
+    <!-- Top Nav -->
     <div class="top-nav">
-        <a href="ja/manual.html">使い方ガイド</a>
-        <a href="ja/terms-of-service.html">利用規約</a>
-        <a href="en/">English</a>
+        <a href="manual.html">User Guide</a>
+        <a href="terms-of-service.html">Terms of Service</a>
+        <a href="../">日本語</a>
     </div>
 
-    <!-- ヒーローセクション -->
+    <!-- Hero Section -->
     <div class="hero">
-        <span class="version">最新版 v1.0.0</span>
+        <span class="version">Latest Release: v1.0.0</span>
         <h1>HugeDiff</h1>
-        <p>ギガ超えのデータも数秒で表示。大容量テキストファイルのための差分比較ツール。</p>
+        <p>Load GB-scale data in seconds.<br>A diff tool built for massive text files.</p>
     </div>
 
     <!-- Benefit (B) & Evidence (E) -->
     <div class="core-features">
         <div class="core-box">
-            <h2>⚡ UI仮想化による大容量ファイルの高速描画</h2>
+            <h2>⚡ Zero Freezes with UI Virtualization</h2>
             <p>
-                巨大なファイルを読み込んでも画面はフリーズしません。HugeDiffは画面描画にUI仮想化（Virtualization）技術を採用し、ストリーミング処理でデータを読み込むため、100万行を超えるファイルでも描画とスクロールを維持します。
+                Say goodbye to frozen screens when loading huge files. By leveraging UI virtualization and data streaming, HugeDiff maintains smooth rendering and scrolling—even when comparing logs with over a million lines.
             </p>
         </div>
 
         <div class="core-box security">
-            <h2>🔒 比較データの外部送信なし（ローカル環境で処理）</h2>
+            <h2>🔒 100% Local Processing (No Data Transmission)</h2>
             <p>
-                ファイルの比較・解析処理はすべてローカルのPC内で実行されます。比較対象のデータが外部サーバーへ送信される仕様はないため、機密性の高いファイルもローカル環境内に留めたまま比較可能です。<br>
+                All file comparisons and parsing are executed entirely on your local machine. HugeDiff never sends your files to external servers, making it completely safe for highly sensitive and confidential data.<br>
                 <span class="note">
-                    ※起動時にお知らせ等の情報を取得する通信を行いますが、ユーザーのファイル内容を送信する機能は含んでおりません。
+                    * The application only performs a brief network check on startup to fetch update notifications. Your file contents are never transmitted.
                 </span>
             </p>
         </div>
     </div>
 
-    <!-- スクリーンショットギャラリー -->
+    <!-- Screenshot Gallery -->
     <div class="screenshot-gallery">
-        <!-- メイン画面（大きく1枚） -->
+        <!-- Main Screenshot -->
         <div class="screenshot-box screenshot-main">
-            <img src="ja/img/text-diff.png" alt="テキスト比較画面（ダークモード）">
-            <div class="caption">▲ テキスト比較画面（ダークモード）。右下のパネルからテキストへの出力機能を呼び出せます。</div>
+            <img src="../en/img/text-diff.png" alt="Text Diff View (Dark Mode)">
+            <div class="caption">▲ Text Diff View (Dark Mode). Side-by-side comparison with inline highlighting.</div>
         </div>
         
-        <!-- サブ画面（強制的に横並びにして画像を縮小） -->
+        <!-- Sub Screenshots -->
         <div class="screenshot-sub-flex">
             <div class="screenshot-box">
-                <img src="ja/img/dir-diff.png" alt="フォルダ構造比較画面">
-                <div class="caption">▲ フォルダ比較。変更ファイルを階層で特定。</div>
+                <img src="../en/img/dir-diff.png" alt="Folder Diff View">
+                <div class="caption">▲ Folder Diff. Easily spot added, removed, and modified files.</div>
             </div>
             <div class="screenshot-box light">
-                <img src="ja/img/light-mode.png" alt="テキスト比較画面（ライトモード）">
-                <div class="caption">▲ ライトモード搭載。好みに合わせて切替可能。</div>
+                <img src="../en/img/light-mode.png" alt="Text Diff View (Light Mode)">
+                <div class="caption">▲ Light Mode included. Switch themes to match your preference.</div>
             </div>
         </div>
     </div>
 
     <!-- Advantage (A) & Feature (F) -->
     <div class="sub-features">
-        <h3>■ 主な機能と技術仕様</h3>
+        <h3>■ Key Features & Specs</h3>
         <ul>
-            <li><strong>大規模ファイル高速処理：</strong> UI仮想化とストリーミング処理により、100万行を超える大容量ログでも数秒で読み込みを完了し、フリーズすることなく滑らかにスクロールできます。</li>
-            <li><strong>差分エクスポート：</strong> 比較結果はテキストファイルへの出力、またはクリップボードへのコピーに対応しています。</li>
-            <li><strong>フォルダの構造比較：</strong> 単一ファイルの比較だけでなく、フォルダ同士の階層構造やファイル配置の差分を一括で確認できます。</li>
-            <li><strong>テーマ切り替え：</strong> 長時間の作業でも目が疲れにくいダークモードと、標準的なライトモードを搭載しています。</li>
-            <li><strong>日本語 / 英語UIの切り替え：</strong> メニューなどの表示言語は、日本語と英語を標準で切り替えることができます。</li>
-            <li><strong>ランタイム・インストール不要：</strong> .NETランタイムを内包しているため、事前の環境構築は不要です。Zipを解凍するだけですぐに使え、システムレジストリも変更しません。</li>
+            <li><strong>High-Speed Large File Handling:</strong> Load 1M+ line logs in seconds and scroll smoothly without freezing, thanks to streaming and UI virtualization.</li>
+            <li><strong>Diff Export:</strong> Export comparison results directly to a text file or copy them to your clipboard.</li>
+            <li><strong>Folder Comparison:</strong> Compare entire directories to quickly identify structural changes and modified files across hierarchical trees.</li>
+            <li><strong>Theme Support:</strong> Includes a Dark Mode to reduce eye strain during long sessions, alongside a standard Light Mode.</li>
+            <li><strong>Bilingual UI:</strong> Native support for English and Japanese interfaces.</li>
+            <li><strong>Portable & No Runtime Required:</strong> HugeDiff is self-contained with the .NET runtime bundled. Just extract the Zip and run it immediately—no installation or registry changes required.</li>
         </ul>
     </div>
 
     <!-- Action -->
     <div class="action-area">
-        <div class="action-text">Zipを解凍するだけで、すぐに比較を開始できます。</div>
-        <a href="https://github.com/maksei-works/hugediff_web/releases/download/v1.0.0/HugeDiff-1.0.0.zip" class="download-btn">HugeDiff v1.0.0 を無料ダウンロード</a>
+        <div class="action-text">No installation required. Unzip and start comparing.</div>
+        <a href="https://github.com/maksei-works/hugediff_web/releases/download/v1.0.0/HugeDiff-1.0.0.zip" class="download-btn">Download HugeDiff v1.0.0 Free</a>
         <div class="download-info">
-            HugeDiff_v1.0.0.zip（約 57 MB）/ フリーソフト（商用利用可）
+            HugeDiff_v1.0.0.zip (Approx. 57 MB) / Free to use (Commercial use allowed)
         </div>
     </div>
 
-    <!-- ダウンロード注意書きセクション -->
-    <div class="smartscreen-notice" style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px 16px; margin-top: 16px; font-size: 13px; color: #475569; line-height: 1.6;">
+    <div class="smartscreen-notice-en" style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px 16px; margin-top: 16px; font-size: 13px; color: #475569; line-height: 1.6;">
         <div style="font-weight: bold; margin-bottom: 6px; color: #0f172a;">
-            ⚠️ 初回起動時に青い画面が表示された場合
+            ⚠️ If you see a blue warning on first launch
         </div>
         <p style="margin: 0 0 6px 0;">
-            コード署名証明書を持たない個人開発アプリのため、Windows Defender SmartScreenによる警告（「WindowsによってPCが保護されました」）が表示される場合があります。
+            Because HugeDiff is an independently developed application without a commercial code-signing certificate, Windows Defender SmartScreen may display a warning (<em>"Windows protected your PC"</em>).
         </p>
         <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 4px; padding: 8px 12px;">
-            <strong>【起動手順】</strong> 画面内の <strong>「詳細情報」</strong> をクリックし、現れた <strong>「実行」</strong> ボタンを押してください。
+            <strong>To launch:</strong> Click <strong>"More info"</strong>, then click the <strong>"Run anyway"</strong> button that appears.
         </div>
     </div>
 
-    <!-- 動作環境 -->
-    <h2 class="section-title" style="margin-top: 32px;">■ 動作環境</h2>
+    <!-- System Requirements -->
+    <h2 class="section-title" style="margin-top: 32px;">■ System Requirements</h2>
     <table>
         <tr>
-            <th>対応OS</th>
-            <td>Windows 10 / 11 (64bit)</td>
+            <th>Supported OS</th>
+            <td>Windows 10 / 11 (64-bit)</td>
         </tr>
         <tr>
-            <th>比較対象</th>
-            <td>テキストファイル, ソースコード, フォルダ（ディレクトリ構造）</td>
+            <th>Target Formats</th>
+            <td>Text files, Source code, Folders (Directories)</td>
         </tr>
         <tr>
-            <th>動作条件</th>
-            <td>完全オフライン環境での動作に対応</td>
+            <th>Conditions</th>
+            <td>Fully functional in offline environments</td>
         </tr>
     </table>
 
-    <!-- 更新履歴 -->
-    <h2 class="section-title">■ 更新履歴</h2>
+    <!-- Release Notes -->
+    <h2 class="section-title">■ Release Notes</h2>
     <div style="font-size:13px; color:var(--muted); background:#f8fafc; padding:12px; border:1px solid var(--border); border-radius:4px;">
-        <strong>2026/10/02 - v1.0.0</strong>：初版リリース
+        <strong>2026-10-02 - v1.0.0</strong>: Initial release.
     </div>
 
     <footer>
         <div class="footer-links">
-            <a href="ja/manual.html">使い方ガイド</a>
+            <a href="manual.html">User Guide</a>
             <span>|</span>
-            <a href="ja/terms-of-service.html">利用規約・プライバシーポリシー</a>
+            <a href="terms-of-service.html">Terms of Service & Privacy Policy</a>
         </div>
         &copy; 2026 Maksei-Works All Rights Reserved.
     </footer>

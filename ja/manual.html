@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SH7YP9G9S1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-SH7YP9G9S1');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HugeDiff 使い方ガイド</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --primary-light: #EEF2FF;
+            --bg: #F9FAFB;
+            --text-main: #1F2937;
+            --text-muted: #6B7280;
+            --card-bg: #FFFFFF;
+            --add-color: #10B981;
+            --remove-color: #EF4444;
+            --change-color: #F59E0B;
+        }
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: linear-gradient(135deg, #4F46E5 0%, #3B82F6 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        header p {
+            margin-top: 10px;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        .badge-highlight {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            display: inline-block;
+            margin-top: 15px;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .step-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--primary);
+            transition: transform 0.2s;
+        }
+        .step-card:hover {
+            transform: translateY(-2px);
+        }
+        .step-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .step-card p {
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+        
+        .diff-legend {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+            background: var(--bg);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        .icon-add { color: var(--add-color); }
+        .icon-remove { color: var(--remove-color); }
+        .icon-change { color: var(--change-color); }
+
+        .shortcut-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        .shortcut-item {
+            background: var(--bg);
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        kbd {
+            background: #E5E7EB;
+            color: var(--text-main);
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            font-weight: bold;
+            border-bottom: 2px solid #D1D5DB;
+        }
+        .pro-tip {
+            background: var(--primary-light);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+        .pro-tip i {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-top: 3px;
+        }
+        .pro-tip p {
+            margin: 0;
+            color: var(--text-main);
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        
+        /* フッター追加用 */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid #E5E7EB;
+            margin-top: 40px;
+        }
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>HugeDiff 使い方ガイド</h1>
+    <p>巨大なファイルやフォルダの「違い」を高速で見つける差分比較ツール</p>
+    <div class="badge-highlight">
+        <i class="fa-solid fa-bolt"></i> 100万行を超える大容量データにも対応！
+    </div>
+</header>
+
+<div class="container">
+
+    <!-- Step 1 -->
+    <div class="step-card">
+        <h2 class="step-title"><i class="fa-solid fa-arrow-pointer"></i> 1. 比較を始める（ドラッグ＆ドロップ）</h2>
+        <p>HugeDiffを起動したら、比較したい<strong>「2つのファイル」</strong>または<strong>「2つのフォルダ」</strong>を画面内にドラッグ＆ドロップしてください。自動的に比較処理がスタートします。</p>
+        
+        <img src="img/drag-drop.png" alt="ドラッグ＆ドロップ画面" style="max-width:100%; border-radius:8px; border:1px solid #E5E7EB;" />
+
+        <div class="pro-tip">
+            <i class="fa-solid fa-lightbulb"></i>
+            <p>ファイルは1つずつ順番にドロップしても問題ありません。「1つ目のアイテム」をドロップすると、2つ目を待機する画面に切り替わります。</p>
+        </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step-card">
+        <h2 class="step-title"><i class="fa-regular fa-folder-open"></i> 2. フォルダを比べる（ディレクトリ比較）</h2>
+        <p>フォルダを比較した場合、ディレクトリ内のファイル一覧が表示され、追加・削除・変更があったファイルが色分けされて一目で分かります。</p>
+        
+        <img src="img/dir-diff.png" alt="フォルダ比較画面" style="max-width:100%; border-radius:8px; border:1px solid #E5E7EB;" />
+
+        <div class="diff-legend">
+            <div class="legend-item"><i class="fa-solid fa-circle-plus icon-add"></i> 追加されたファイル (緑)</div>
+            <div class="legend-item"><i class="fa-solid fa-circle-minus icon-remove"></i> 削除されたファイル (赤)</div>
+            <div class="legend-item"><i class="fa-solid fa-circle-exclamation icon-change"></i> 変更があったファイル (黄/オレンジ)</div>
+        </div>
+        
+        <div class="pro-tip">
+            <i class="fa-solid fa-hand-pointer"></i>
+            <p>変更があったファイル（黄色/オレンジのアイコン）を<strong>ダブルクリック</strong>すると、そのままファイル内のテキスト比較画面へ移動できます。</p>
+        </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step-card">
+        <h2 class="step-title"><i class="fa-regular fa-file-lines"></i> 3. ファイルの中身を比べる（テキスト比較）</h2>
+        <p>ファイルを比較すると、画面が左右に分割され「どこが書き換わったか」がハイライト表示されます。UI仮想化技術により、<strong>100万行クラスの巨大なログファイルでもフリーズせず、滑らかにスクロール可能</strong>です。</p>
+        
+        <img src="img/text-diff.png" alt="テキスト比較画面" style="max-width:100%; border-radius:8px; border:1px solid #E5E7EB;" />
+
+        <p>便利なキーボードショートカット:</p>
+        <div class="shortcut-grid">
+            <div class="shortcut-item">
+                <span>次の変更箇所へジャンプ</span>
+                <kbd>Ctrl + ↓</kbd>
+            </div>
+            <div class="shortcut-item">
+                <span>前の変更箇所へジャンプ</span>
+                <kbd>Ctrl + ↑</kbd>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="step-card">
+        <h2 class="step-title"><i class="fa-solid fa-file-export"></i> 4. 比較結果の出力（差分エクスポート）</h2>
+        <p>テキスト比較画面の右上にある「エクスポート」ボタンを押すと、比較した結果（差分テキスト）を外部へ書き出すことができます。</p>
+        
+        <img src="img/export-diff.png" alt="エクスポート画面" style="max-width:100%; border-radius:8px; border:1px solid #E5E7EB;" />
+ 
+        <ul>
+            <li><strong>条件を絞って抽出：</strong> 「追加された行だけ」「変更された行だけ」など、必要な差分情報だけをフィルタリングして出力可能です。</li>
+            <li><strong>出力先の選択：</strong> 抽出したテキストデータは、そのままクリップボードにコピーするか、テキストファイル（.txt）として保存できます。レビュー時の共有証跡としてご活用ください。</li>
+        </ul>
+    </div>
+
+    <!-- Step 5 -->
+    <div class="step-card">
+        <h2 class="step-title"><i class="fa-solid fa-gear"></i> 5. 各種設定とアップデート通知</h2>
+        <p>画面右上のアイコンから、HugeDiffの動作環境をカスタマイズできます。</p>
+        <ul>
+            <li><strong>テーマ変更:</strong> 目の負担を軽減する「ダークモード（暗色）」と、標準的な「ライトモード（明色）」を切り替えられます。</li>
+            <li><strong>言語設定:</strong> UIの表示言語を「日本語」または「英語」に変更できます。</li>
+            <li><strong>お知らせ通知:</strong> アプリの最新バージョン情報や重要なお知らせを受信できます（バッジが表示されている時はご確認ください）。</li>
+        </ul>
+    </div>
+
+</div>
+
+<footer>
+    <a href="../">トップページへ戻る</a> | <a href="terms-of-service.html">利用規約</a>
+    <p>&copy; 2026 Maksei-Works All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
