@@ -19,7 +19,7 @@
     <link rel="alternate" hreflang="x-default" href="./" />
     <link rel="canonical" href="https://maksei-works.github.io/hugediff_web/" />
     <link rel="icon" href="favicon.ico" />
-    <title>HugeDiff - 大容量テキスト・フォルダ対応の差分比較ツール</title>
+    <title>HugeDiff - 2GB超の大容量ファイルも重くない！無料の高速DIFF（差分比較）ツール</title>
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://maksei-works.github.io/hugediff_web/" />
     <meta property="og:title" content="HugeDiff - 大容量テキスト・フォルダ対応の差分比較ツール" />
@@ -312,14 +312,14 @@
 
     <!-- ヒーローセクション -->
     <div class="hero">
-        <span class="version">最新版 v1.0.0</span>
+        <span class="version">最新版 v1.1.0</span>
         <h1>HugeDiff</h1>
         <p>ギガ超えのデータも数秒で表示。大容量テキストファイルのための差分比較ツール。</p>
     </div>
 
     <div style="margin-bottom: 24px; padding: 16px; background: #f8fafc; border-left: 4px solid var(--primary); font-size: 14px; color: var(--muted); border-radius: 4px;">
         <strong>こんな課題を解決します：</strong><br>
-        「数GBのログを開くと既存の比較ツールがフリーズする」「PowerShellやコマンドプロンプトで比較するのは見づらくて面倒」——そんな現場のストレスを解消し、ドラッグ＆ドロップのマウス操作だけで巨大データの差分を手軽に確認するために設計されました。
+        「数GBのログや100万行のCSVを開くと既存の比較ツールが重い・フリーズして開けない」「PowerShellやコマンドプロンプトで比較するのは見づらくて面倒」——そんな現場のストレスを解消し、ドラッグ＆ドロップのマウス操作だけで巨大データの差分を手軽に比較するために開発しました。
     </div>
     
     <!-- Benefit (B) & Evidence (E) -->
@@ -368,8 +368,8 @@
         <h3>■ 主な機能と技術仕様</h3>
         <ul>
             <li><strong>大規模ファイル高速処理：</strong> UI仮想化とストリーミング処理により、100万行を超える大容量ログでも数秒で読み込みを完了し、フリーズすることなく滑らかにスクロールできます。</li>
-            <li><strong>差分エクスポート：</strong> 比較結果はテキストファイルへの出力、またはクリップボードへのコピーに対応しています。</li>
-            <li><strong>フォルダの構造比較：</strong> 単一ファイルの比較だけでなく、フォルダ同士の階層構造やファイル配置の差分を一括で確認できます。</li>
+            <li><strong>差分エクスポート：</strong> 比較結果は、テキストファイルへの保存や、クリップボードへのコピーが可能です。</li>
+            <li><strong>フォルダ（ディレクトリ）の構造比較：</strong> 単一ファイルの比較だけでなく、フォルダ同士の階層構造やファイル配置の差分を一括で確認できます。</li>
             <li><strong>テーマ切り替え：</strong> 長時間の作業でも目が疲れにくいダークモードと、標準的なライトモードを搭載しています。</li>
             <li><strong>日本語 / 英語UIの切り替え：</strong> メニューなどの表示言語は、日本語と英語を標準で切り替えることができます。</li>
             <li><strong>ランタイム・インストール不要：</strong> .NETランタイムを内包しているため、事前の環境構築は不要です。Zipを解凍するだけですぐに使え、システムレジストリも変更しません。</li>
@@ -379,9 +379,9 @@
     <!-- Action -->
     <div class="action-area">
         <div class="action-text">Zipを解凍するだけで、すぐに比較を開始できます。</div>
-        <a href="https://github.com/maksei-works/hugediff_web/releases/download/v1.0.0/HugeDiff-1.0.0.zip" class="download-btn">HugeDiff v1.0.0 を無料ダウンロード</a>
+        <a href="https://github.com/maksei-works/hugediff_web/releases/download/1.1.0/HugeDiff-1.1.0.zip" class="download-btn">HugeDiff v1.1.0 を無料ダウンロード</a>
         <div class="download-info">
-            HugeDiff_v1.0.0.zip（約 57 MB）/ フリーソフト（商用利用可）
+            HugeDiff_1.1.0.zip（約 57 MB）/ フリーソフト（商用利用可）
         </div>
     </div>
 
@@ -407,7 +407,7 @@
         </tr>
         <tr>
             <th>比較対象</th>
-            <td>テキストファイル, ソースコード, フォルダ（ディレクトリ構造）</td>
+            <td>テキストファイル, ログファイル, 大容量CSV, ソースコード, フォルダ（ディレクトリ構造）</td>
         </tr>
         <tr>
             <th>動作条件</th>
@@ -418,7 +418,8 @@
     <!-- 更新履歴 -->
     <h2 class="section-title">■ 更新履歴</h2>
     <div style="font-size:13px; color:var(--muted); background:#f8fafc; padding:12px; border:1px solid var(--border); border-radius:4px;">
-        <strong>2026/10/02 - v1.0.0</strong>：初版リリース
+        <strong>2026/10/02 - v1.0.0</strong>：初版リリース<br>
+        <strong>2026/11/08 - v1.1.0</strong>：コマンドライン起動対応、差分エクスポートの強化、不具合修正<br>
     </div>
 
     <footer>
