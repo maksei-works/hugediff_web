@@ -55,9 +55,9 @@
         
         <h4>Key Updates</h4>
         <ul>
-          <li><strong>Improved Diff Accuracy &amp; Performance for Large Files:</strong> Fixed an issue where line shifts caused by insertions or deletions near the beginning or middle of a file could incorrectly mark the entire file as completely different. Introduced anchor-based segment alignment and fast skipping for identical blocks, enabling accurate and memory-efficient comparisons even on 2GB-class files.</li>
-          <li><strong>Fixed &amp; Enhanced UTF-16 (LE / BE) and Encoding / BOM Detection:</strong> Fixed line-ending handling for UTF-16 (LE / BE) files to prevent replacement characters, text corruption, and incorrect CRLF/LF detection, and excluded BOM bytes (UTF-8 / UTF-16) from the first line text. Added automatic detection for BOM-less UTF-16 (LE / BE) and improved SIMD-based scanning across the entire file for non-ASCII characters.</li>
-          <li><strong>Fixed Maximized Window Layout Issue:</strong> Fixed a bug where maximizing the main window caused it to extend behind the Windows taskbar and outside the screen edges, hiding the bottom status bar and top-right window caption buttons.</li>
+          <li><strong>Improved Diff Accuracy for Large Files:</strong> Fixed an issue where line shifts caused the entire file to be mistakenly detected as completely different.</li>
+          <li><strong>Fixed &amp; Enhanced UTF-16 / BOM Detection:</strong> Fixed text corruption and incorrect CRLF/LF or BOM detection when comparing UTF-16 files.</li>
+          <li><strong>Fixed Maximized Window Layout Issue:</strong> Fixed a bug where maximizing the window caused the bottom status bar and top-right window buttons to be hidden.</li>
         </ul>
         <p>Please visit our <a href="index.html">homepage</a> to download the latest version and view detailed specifications.</p>
       </article>
