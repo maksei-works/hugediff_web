@@ -1,6 +1,6 @@
 {
-  "latest_version": "1.1.0",
-  "notification_id": "20261107-00",
+  "latest_version": "1.1.1",
+  "notification_id": "20261114-00",
   "button_text": { "ja": "お知らせ", "en": "Notifications" },
   "base_url": null,
   "bug_report_url": null

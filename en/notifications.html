@@ -45,6 +45,23 @@
     <!-- News List -->
     <section>
       
+      <!-- Article (v1.1.1 Release) -->
+      <article>
+        <header>
+          <span class="date-label">November 14, 2026</span>
+          <strong><span class="update-badge">Update</span>HugeDiff v1.1.1 Released</strong>
+        </header>
+        <p>This bug-fix and stability update improves diff accuracy and speed for large files, enhances UTF-16 and BOM/encoding detection, and fixes a layout issue when maximizing the window.</p>
+        
+        <h4>Key Updates</h4>
+        <ul>
+          <li><strong>Improved Diff Accuracy &amp; Performance for Large Files:</strong> Fixed an issue where line shifts caused by insertions or deletions near the beginning or middle of a file could incorrectly mark the entire file as completely different. Introduced anchor-based segment alignment and fast skipping for identical blocks, enabling accurate and memory-efficient comparisons even on 2GB-class files.</li>
+          <li><strong>Fixed &amp; Enhanced UTF-16 (LE / BE) and Encoding / BOM Detection:</strong> Fixed line-ending handling for UTF-16 (LE / BE) files to prevent replacement characters, text corruption, and incorrect CRLF/LF detection, and excluded BOM bytes (UTF-8 / UTF-16) from the first line text. Added automatic detection for BOM-less UTF-16 (LE / BE) and improved SIMD-based scanning across the entire file for non-ASCII characters.</li>
+          <li><strong>Fixed Maximized Window Layout Issue:</strong> Fixed a bug where maximizing the main window caused it to extend behind the Windows taskbar and outside the screen edges, hiding the bottom status bar and top-right window caption buttons.</li>
+        </ul>
+        <p>Please visit our <a href="index.html">homepage</a> to download the latest version and view detailed specifications.</p>
+      </article>
+
       <!-- Article (v1.1.0 Release) -->
       <article>
         <header>
